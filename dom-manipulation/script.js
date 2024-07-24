@@ -33,5 +33,8 @@ function createAddQuoteForm(){
 form.addEventListener('submit', function(event) {
   event.preventDefault()});
 
+  //new quote local storage
+  localStorage.setItem("newQuoteText","value")
+
 
 
