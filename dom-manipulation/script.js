@@ -39,8 +39,9 @@ form.addEventListener('submit', function(event) {
 //loading quotes from local storage on initialization
 const newQuotesText = (localStorage.getItem('newQuotesText'));
 
+function createButtonWithContent(){
 // Export Quotes Button
 const button = document.createElement('button');
 button.innerHTML= 'Export Quotes'
 const quoteDisplay=document.getElementById('quoteDisplay')
-quoteDisplay.appendChild(button);
+quoteDisplay.appendChild(button);}
