@@ -42,4 +42,5 @@ const newQuotesText = (localStorage.getItem('newQuotesText'));
 // Export Quotes Button
 const button = document.createElement('button');
 button.innerHTML= 'Export Quotes'
-document.body.appendChild(button);
+const quoteDisplay=document.getElementById('quoteDisplay')
+quoteDisplay.appendChild(button);
