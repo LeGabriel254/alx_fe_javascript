@@ -29,3 +29,9 @@ function createAddQuoteForm(){
   const newQuoteCategory = document.getElementById ('newQuoteCategory').value;
 
 }
+  // Add an event listener to the form's submit event
+form.addEventListener('submit', function(event) {
+  event.preventDefault()});
+
+
+
