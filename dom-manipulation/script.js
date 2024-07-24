@@ -1,7 +1,7 @@
 // An array of quote object
 let quote = [
   { text: "Don't wish for it work for it", category:"Motivation"},
-  { text:"One dayall those late night and early morning will pay off.", category:"Life"}
+  { text:"One day all those late night and early morning will pay off.", category:"Life"}
 ];
 
 // function to disply random quote
@@ -12,9 +12,20 @@ function showRandomQuote() {
   quoteDisplay.innerHTML = `"${randomQuote.text}" - ${randomQuote.category}`;
 }
 
+// Create Form
+const form = document.createElement('form');
+form.innerHTML = `<div>
+<input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+<input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+<button onclick="addQuote()">Add Quote</button>
+</div>`;
+
+// Add the form to the page
+document.body.appendChild(form);
+
 //Function to addNew quote
 function createAddQuoteForm(){
   const  newQuoteText = document.getElementById('newQuoteText').value;
   const newQuoteCategory = document.getElementById ('newQuoteCategory').value;
-  
+
 }
