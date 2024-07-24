@@ -39,3 +39,20 @@ form.addEventListener('submit', function(event) {
 //loading quotes from local storage on initialization
 const newQuotesText =JSON.parse (localStorage.getItem('newQuotesText'));
 
+
+
+const exportButton = document.getElementById('exportQuotes');
+exportButton.addEventListener('click', function() {
+  const jsonString = JSON.stringify(quotes, null, 2); // Add indentation for readability
+  const blob = new Blob([jsonString], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  // Create a link and trigger a download
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'quotes.json';
+  link.click();
+
+  // Release the URL object
+  URL.revokeObjectURL(url);
+});
