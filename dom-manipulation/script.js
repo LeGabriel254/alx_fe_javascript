@@ -36,5 +36,6 @@ form.addEventListener('submit', function(event) {
   //new quote local storage
   localStorage.setItem("newQuoteText","value")
 
-
+//loading quotes from local storage on initialization
+const newQuotesText = (localStorage.getItem('newQuotesText'))
 
