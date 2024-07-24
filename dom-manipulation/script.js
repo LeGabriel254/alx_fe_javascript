@@ -40,7 +40,5 @@ form.addEventListener('submit', function(event) {
 const newQuotesText = (localStorage.getItem('newQuotesText'));
 
 // Export Quotes Button
-const newButton = document.createElement('button');
-const newContent =document.innerHTML('Export Quotes');
-newButton.appendChild(newContent);
-
+const button = document.createElement('button');
+button.innerHTML= 'Export Quotes'
