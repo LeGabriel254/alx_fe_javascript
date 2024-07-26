@@ -80,6 +80,16 @@ document.addEventListener('DOMContentLoaded',() =>  {
 
 })
 
+
+// Assuming you have a dropdown element with this id
+let categoryDropdown = document.getElementById('categoryDropdown');
+
+categories.forEach(category => {
+    let option = document.createElement('option');
+    option.textContent = category;
+    categoryDropdown.appendChild(option);
+});
+
 function filterQuotes(category){
   let filteredQuotes = quotes.filter(
     quote => quote.category === category);
