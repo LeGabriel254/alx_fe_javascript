@@ -59,5 +59,7 @@ exportButton.addEventListener('click', function() {
 
 
 //Implemented JSON Import
-const Div = document.createElement('Div');
+const Div = document.createElement(Div);
 Div.innerHTML =  `<input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />`
+// Add the form to the page
+document.body.appendChild(Div);
