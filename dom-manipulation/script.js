@@ -70,12 +70,17 @@ function importFromJsonFile(event) {
 }
 
 //Populate Categories Dynamically
-let quotes = [];
+let category =quote.map();
 
 document.getElementById('fileInput').addEventListener('change', filterQuotes);
 document.addEventListener('DOMContentLoaded',() =>  {
     populateCategories();
     categoryFilter();
-    map ();
+   
 
 })
+
+function filterQuotes(category){
+  let filteredQuotes = quotes.filter(
+    quote => quote.category === category);
+  }
