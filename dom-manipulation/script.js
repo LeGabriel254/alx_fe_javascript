@@ -72,10 +72,12 @@ function importFromJsonFile(event) {
 //Populate Categories Dynamically
 let category =quote.map();
 
-document.getElementById('fileInput').addEventListener('change', filterQuotes);
+document.getElementById('fileInput').addEventListener('change', handleFileSelect);
 document.addEventListener('DOMContentLoaded',() =>  {
     populateCategories();
     categoryFilter();
+    fetchQuotesFromServer();
+    setInterval(fetchQuotesFromServer, 60000); // Periodically fetch quotes every 60 seconds
    
 
 })
@@ -89,8 +91,49 @@ categories.forEach(category => {
     option.textContent = category;
     categoryDropdown.appendChild(option);
 });
+//Remember selected filter
+localStorage.setItem('lastCategory', category);
+let lastCategory = localStorage.getItem('lastCategory');
 
 function filterQuotes(category){
   let filteredQuotes =selectedCategory === 'all' ? quotes : quotes.filter(
     quote => quote.category === selectedCategory);
   }
+
+  function addQuote(quote) {
+    quotes.push(quote);
+    categories = quotes.map(quote => quote.category).filter((value, index, self) => self.indexOf(value) === index);
+    localStorage.setItem('quotes', JSON.stringify(quotes));
+    localStorage.setItem('categories', JSON.stringify(categories));
+}
+
+axios.get('https://jsonplaceholder.typicode.com/posts')
+.then(response => {
+  console.log(response.data);
+})
+.catch(error => {
+  console.error('Error fetching data: ', error);
+});
+setInterval(() => {
+  axios.get('https://jsonplaceholder.typicode.com/posts')
+  .then(response => {
+    localStorage.setItem('quotes', JSON.stringify(response.data));
+  })
+  .catch(error => {
+    console.error('Error fetching data: ', error);
+  });
+}, 60000); // checks for new data every minute
+
+import noty from 'noty';
+
+noty({
+  text: 'Data has been updated!',
+  type: 'information',
+  layout: 'topRight',
+  theme: 'relax',
+  timeout: 3000,
+  progressBar: true,
+  closeWith: ['button'],
+  animation: {
+    open: 'animated bounceInRight', //
+  }})
