@@ -56,3 +56,8 @@ exportButton.addEventListener('click', function() {
   // Release the URL object
   URL.revokeObjectURL(url);
 });
+
+
+//Implemented JSON Import
+const Div = document.createElement('Div');
+Div.innerHTML =  `<input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />`
