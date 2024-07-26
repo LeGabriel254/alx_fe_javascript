@@ -68,3 +68,14 @@ function importFromJsonFile(event) {
   };
   fileReader.readAsText(event.target.files[0]);
 }
+
+//Populate Categories Dynamically
+let quotes = [];
+
+document.getElementById('fileInput').addEventListener('change', filterQuotes);
+document.addEventListener('DOMContentLoaded',() =>  {
+  loadQuotes();
+    populateCategories();
+    restoreLastFilter();
+
+})
