@@ -76,6 +76,7 @@ document.getElementById('fileInput').addEventListener('change', filterQuotes);
 document.addEventListener('DOMContentLoaded',() =>  {
   loadQuotes();
     populateCategories();
-    restoreLastFilter();
+    categoryFilter();
+    
 
 })
