@@ -91,6 +91,6 @@ categories.forEach(category => {
 });
 
 function filterQuotes(category){
-  let filteredQuotes = quotes.filter(
-    quote => quote.category === category);
+  let filteredQuotes =selectedCategory === 'all' ? quotes : quotes.filter(
+    quote => quote.category === selectedCategory);
   }
