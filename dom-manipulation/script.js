@@ -74,9 +74,8 @@ let quotes = [];
 
 document.getElementById('fileInput').addEventListener('change', filterQuotes);
 document.addEventListener('DOMContentLoaded',() =>  {
-  loadQuotes();
     populateCategories();
     categoryFilter();
-    
+    map ();
 
 })
