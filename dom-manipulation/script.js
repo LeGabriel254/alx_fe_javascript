@@ -136,3 +136,12 @@ const fetchData = async () => {
     console.error("Failed to fetch data from server", error);
   }
 };
+// Periodic data fetching
+const periodicFetch = (interval) => {
+  setInterval(fetchData, interval);
+};
+
+// Start periodic fetch every 60 seconds
+periodicFetch(60000);
+
+let localData = [];
