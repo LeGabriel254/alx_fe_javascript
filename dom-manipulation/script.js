@@ -146,3 +146,31 @@ async function postQuotesToServer(quote) {
       body: JSON.stringify(quote),
   });
 }
+
+async function syncQuotes() {
+  const serverQuotes = await fetchQuotesFromServer();
+  const serverQuoteTexts = serverQuotes.map(quote => quote.text);
+  const localQuoteTexts = quotes.map(quote => quote.text);
+
+  // Implementing  Data Syncing
+  const newQuotes = serverQuotes.filter(quote => !localQuoteTexts.includes(quote.text));
+  if (newQuotes.length > 0) {
+      quotes.push(...newQuotes);
+      saveQuotes();
+      populateCategories();
+      showNotification("Quotes synced with server!");
+  }
+  const newLocalQuotes = quotes.filter(quote => !serverQuoteTexts.includes(quote.text));
+  for (const quote of newLocalQuotes) {
+      await postQuotesToServer(quote);
+  }
+}
+
+function showNotification(message) {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.style.display = 'block';
+  setTimeout(() => {
+      notification.style.display = 'none';
+  }, 5000);
+}
