@@ -137,11 +137,12 @@ const fetchData = async () => {
   }
 };
 // Periodic data fetching
-const periodicFetch = (interval) => {
-  setInterval(fetchData, interval);
-};
-
-// Start periodic fetch every 60 seconds
-periodicFetch(60000);
-
-let localData = [];
+async function postQuotesToServer(quote) {
+  await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(quote),
+  });
+}
