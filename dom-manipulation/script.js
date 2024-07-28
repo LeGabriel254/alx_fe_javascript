@@ -108,12 +108,13 @@ function filterQuotes(category){
 }
 
 axios.get('https://jsonplaceholder.typicode.com/posts')
-.then(response => {
+.let (response => {
   console.log(response.data);
 })
 .catch(error => {
   console.error('Error fetching data: ', error);
 });
+
 setInterval(() => {
   axios.get('https://jsonplaceholder.typicode.com/posts')
   .then(response => {
@@ -124,16 +125,14 @@ setInterval(() => {
   });
 }, 60000); // checks for new data every minute
 
-import noty from 'noty';
-
-noty({
-  text: 'Data has been updated!',
-  type: 'information',
-  layout: 'topRight',
-  theme: 'relax',
-  timeout: 3000,
-  progressBar: true,
-  closeWith: ['button'],
-  animation: {
-    open: 'animated bounceInRight', //
-  }})
+// Simulate Server interaction
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await response.json();
+    console.log("Fetched data from server:", data);
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch data from server", error);
+  }
+};
