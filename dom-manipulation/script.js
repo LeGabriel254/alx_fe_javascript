@@ -7,7 +7,7 @@ let quote = [
 // function to disply random quote
 function showRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quote.length );
-  const randomQuote =quotes[randomIndex];
+  const randomQuote =quote[randomIndex];
   const quoteDisplay = document.getElementById('quoteDisplay');
   quoteDisplay.innerHTML = `"${randomQuote.text}" - ${randomQuote.category}`;
 }
