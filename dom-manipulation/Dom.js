@@ -38,9 +38,9 @@
 // const result = flatten(nestArry);
 
 // console.log(result);
-function go_to_google() {
-if ( confirm('Go to Google?') ) {
-  document.location = 
- 'http://www.google.com/';
- }
+// 
+
+for (let i = 2;i < 4; i++){
+
+  console.log(i)
 }
