@@ -71,6 +71,23 @@ button.addEventListener('click',function() {
 //     // Change the text back to "Click Me" if it was "Clicked!"
 //     button.textContent = "Click Me";
 //   }
-
-
 })
+
+
+
+const listItems = document.querySelectorAll(".hover-item");
+
+// Loop through each list item and add event listeners for "mouseover" and "mouseout"
+listItems.forEach(item => {
+  // Attach "mouseover" event listener
+  item.addEventListener("mouseover", function() {
+    // Change the background color when the mouse is over the item
+    item.style.backgroundColor = "#f0f0f0"; // Light gray background
+  });
+
+  // Attach "mouseout" event listener
+  item.addEventListener("mouseout", function() {
+    // Reset the background color when the mouse is out of the item
+    item.style.backgroundColor = ""; // Reset to original background
+  });
+});
