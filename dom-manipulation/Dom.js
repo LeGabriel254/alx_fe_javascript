@@ -57,3 +57,20 @@ sumArray()
 // const para =  document.getElementById('greatings')
 
 // para.textContent= `Leon`
+
+const button = document.getElementById('click')
+
+button.addEventListener('click',function() {
+    button.textContent = "Clicked!";
+
+//  // Use an if statement to check the current text content of the button
+//  if (button.textContent === "Click Me") {
+//     // Change the text to "Clicked!" if it is currently "Click Me"
+//     button.textContent = "Clicked!";
+//   } else {
+//     // Change the text back to "Click Me" if it was "Clicked!"
+//     button.textContent = "Click Me";
+//   }
+
+
+})
