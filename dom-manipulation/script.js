@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded',() =>  {
 // Assuming you have a dropdown element with this id
 let categoryDropdown = document.getElementById('categoryDropdown');
 
-categories.forEach(category => {
+category.forEach(category => {
     let option = document.createElement('option');
     option.textContent = category;
     categoryDropdown.appendChild(option);
@@ -174,3 +174,7 @@ function showNotification(message) {
       notification.style.display = 'none';
   }, 5000);
 }
+
+
+let para = document.getElementById('greetings')
+para.textContent='Hello Leon'
