@@ -39,8 +39,21 @@
 
 // console.log(result);
 // 
+// 
 
-for (let i = 2;i < 4; i++){
-
-  console.log(i)
+ function sumArray() {
+  let sum = 0;
+  let numbers = [1,2,3,4,5,6,7]
+  for(let value of numbers) {
+      sum += value
+      console.log(`${value}, ${sum}`)
+  }
+ console.log(`${sum}`)
 }
+
+sumArray()
+
+
+// const para =  document.getElementById('greatings')
+
+// para.textContent= `Leon`
