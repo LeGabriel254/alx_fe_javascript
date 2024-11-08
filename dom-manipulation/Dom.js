@@ -76,6 +76,7 @@ button.addEventListener('click',function() {
 
 
 const listItems = document.querySelectorAll(".hover-item");
+z
 
 // Loop through each list item and add event listeners for "mouseover" and "mouseout"
 listItems.forEach(item => {
